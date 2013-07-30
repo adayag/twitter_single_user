@@ -1,0 +1,5 @@
+<ul>
+    <%  if @current_tweet %>
+      <h3><%= Twitter.user.name %>said: <%= @current_tweet.text %></h3>
+    <% end %>
+</ul>
