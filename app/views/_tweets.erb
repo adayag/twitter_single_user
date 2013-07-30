@@ -1,5 +1,8 @@
 <ul>
-    <%  if @current_tweet %>
-      <h3><%= Twitter.user.name %>said: <%= @current_tweet.text %></h3>
-    <% end %>
+      <% if flash[:success] %>
+        <div id='flash' class='notice'>
+        <a class="close" data-dismiss="alert"></a>
+        <h3><%= Twitter.user.name%>said:<%= flash[:success] %></h3>
+        </div>
+      <% end %>
 </ul>

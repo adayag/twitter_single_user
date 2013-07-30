@@ -1,14 +1,16 @@
 get '/' do
-  erb :index
-end
-
-post '/' do
-  @current_tweet = tweet!(params[:text])
   if request.xhr?
     erb :_tweets, :layout => false
   else
     erb :index
   end
+end
+
+post '/' do
+  flash[:success] = nil
+  current_tweet = tweet!(params[:text])
+  flash[:success] = current_tweet.text 
+  redirect to('/')
 end
 
 # get '/:username' do
